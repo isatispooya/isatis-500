@@ -16,6 +16,34 @@ const Error500 = () => {
     ContactInfo,
   } = getStyles();
 
+  // اطلاعات سایت‌ها
+  const websites = [
+    {
+      name: "گروه مالی و سرمایه گذاری",
+      logo: "./img/isatispooya.webp",
+      url: "https://isatispooya.com",
+      color: "#3498db",
+    },
+    {
+      name: "تامین مالی کراد",
+      logo: "./img/crowd.webp",
+      url: "https://isatiscrowd.ir",
+      color: "#e74c3c",
+    },
+    {
+      name: "توسعه اطلاعات مالی",
+      logo: "./img/findev.webp",
+      url: "https://findev.isatispooya.com",
+      color: "#2ecc71",
+    },
+    {
+      name: "صنایع مفتول",
+      logo: "./img/ipmill.webp",
+      url: "https://ipmill.isatispooya.com/",
+      color: "#2ecc71",
+    },
+  ];
+
   useEffect(() => {
     document.title = "در حال بروزرسانی - لطفا صبور باشید";
   }, []);
@@ -279,23 +307,125 @@ const Error500 = () => {
         transition={{ delay: 1, duration: 0.8 }}
         style={{ textAlign: "right", direction: "rtl" }}
       >
-        <div>
-          در صورت نیاز به پشتیبانی، به وب‌سایت{" "}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "10px",
+            marginBottom: "15px",
+            borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+            paddingBottom: "10px",
+            width: "100%",
+            justifyContent: "center",
+          }}
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            style={{ opacity: 0.8 }}
+          >
+            <path
+              d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
+              stroke="#9fd9ff"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
           <span
             style={{
               color: "#9fd9ff",
+              fontSize: "16px",
               fontWeight: "bold",
-              textDecoration: "underline",
             }}
           >
-            www.example.com
-          </span>{" "}
-          مراجعه کنید.
+            سایت‌های مرتبط
+          </span>
         </div>
-        <div style={{ marginTop: "10px", fontWeight: "bold" }}>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(4, 1fr)",
+            gap: "15px",
+            width: "100%",
+            justifyItems: "center",
+            justifyContent: "center",
+            alignItems: "center",
+            margin: "0 auto",
+            textAlign: "center",
+            maxWidth: "600px",
+          }}
+        >
+          {websites.map((site, index) => (
+            <a
+              key={index}
+              href={site.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                textDecoration: "none",
+                cursor: "pointer",
+                margin: "0 auto",
+                width: "100%",
+              }}
+            >
+              <div
+                style={{
+                  width: "50px",
+                  height: "50px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginBottom: "5px",
+                  background: "#ffff",
+                  borderRadius: "8px",
+                  boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                  transition: "all 0.2s ease",
+                  margin: "0 auto",
+                }}
+              >
+                <img
+                  src={site.logo}
+                  alt={site.name}
+                  style={{
+                    width: "65%",
+                    height: "65%",
+                    objectFit: "contain",
+
+                  }}
+                />
+              </div>
+              <span
+                style={{
+                  color: "#fff",
+                  fontSize: "11px",
+                  fontWeight: "500",
+                  textAlign: "center",
+                  opacity: 0.8,
+                  marginTop: "5px",
+                }}
+              >
+                {site.name}
+              </span>
+            </a>
+          ))}
+        </div>
+        <hr style={{ margin: "10px 0" }} />
+
+        <div
+          style={{ marginTop: "10px", fontWeight: "bold", marginTop: "10px" }}
+        >
           شماره تماس پشتیبانی:{" "}
           <span style={{ color: "#9fd9ff", direction: "ltr" }}>
-            ۰۲۱۸۸۵۵۶۶۷۷
+            03535220088 _ 02191090088
           </span>
         </div>
         <div style={{ marginTop: "10px", fontSize: "14px", opacity: 0.8 }}>
