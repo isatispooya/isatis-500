@@ -399,7 +399,6 @@ const Error500 = () => {
                     width: "65%",
                     height: "65%",
                     objectFit: "contain",
-
                   }}
                 />
               </div>
