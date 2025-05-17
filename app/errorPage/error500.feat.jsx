@@ -301,6 +301,9 @@ const Error500 = () => {
         رسانی است. لطفا دقایقی دیگر مجدد تلاش کنید.
       </Subtitle>
 
+
+      
+
       <ContactInfo
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
