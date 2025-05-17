@@ -8,9 +8,10 @@ const getStyles = () => {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    width: 100vw;
+    width: 100%;
+    max-width: 100vw;
     margin: 0;
-    padding: 0;
+    padding: clamp(20px, 5vw, 40px);
     box-sizing: border-box;
     background: linear-gradient(
       135deg,
@@ -26,9 +27,21 @@ const getStyles = () => {
     text-align: right;
     direction: rtl;
     font-family: "PeydaWeb", sans-serif;
-    padding: 0;
     overflow: hidden;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    @media (max-width: 768px) {
+      text-align: center;
+      position: fixed;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
 
     @keyframes gradientAnimation {
       0% {
@@ -60,7 +73,7 @@ const getStyles = () => {
   `;
 
   const Title = styled(motion.h1)`
-    font-size: 4.8rem;
+    font-size: clamp(2rem, 5vw, 4.8rem);
     margin-bottom: 0;
     font-weight: 900;
     background: linear-gradient(to right, #ffffff, #f0f8ff, #ffffff, #e6f0ff);
@@ -70,6 +83,12 @@ const getStyles = () => {
     text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     letter-spacing: 2px;
     position: relative;
+    word-wrap: break-word;
+    padding: 0 clamp(10px, 3vw, 20px);
+
+    @media (max-width: 768px) {
+      font-size: clamp(2rem, 8vw, 3.5rem);
+    }
 
     &::after {
       content: attr(data-text);
@@ -87,18 +106,23 @@ const getStyles = () => {
   `;
 
   const Subtitle = styled(motion.p)`
-    font-size: 1.6rem;
-    max-width: 620px;
+    font-size: clamp(1rem, 3vw, 1.6rem);
+    width: 100%;
+    max-width: min(90vw, 620px);
     line-height: 1.7;
-    margin: 1.2rem auto 2.5rem;
+    margin: clamp(1rem, 3vw, 1.2rem) auto clamp(1.5rem, 4vw, 2.5rem);
     background: rgba(255, 255, 255, 0.18);
-    padding: 18px 28px;
+    padding: clamp(12px, 3vw, 18px) clamp(15px, 4vw, 28px);
     border-radius: 20px;
     backdrop-filter: blur(7px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15),
       0 0 20px rgba(255, 255, 255, 0.15) inset;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.25);
+
+    @media (max-width: 768px) {
+      font-size: clamp(1rem, 4vw, 1.4rem);
+    }
   `;
 
   const Gear = styled(motion.div)`
@@ -108,7 +132,7 @@ const getStyles = () => {
     opacity: 0.7;
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.7),
       0 0 80px rgba(255, 255, 255, 0.25) inset;
-    
+
     &::before {
       content: "";
       position: absolute;
@@ -120,6 +144,26 @@ const getStyles = () => {
       border-radius: 50%;
       transform: translate(-50%, -50%);
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    }
+
+    @media (max-width: 768px) {
+      &.large {
+        width: 120px !important;
+        height: 120px !important;
+        border-width: 12px;
+      }
+
+      &.medium {
+        width: 80px !important;
+        height: 80px !important;
+        border-width: 8px;
+      }
+
+      &.small {
+        width: 60px !important;
+        height: 60px !important;
+        border-width: 6px;
+      }
     }
 
     &.large {
@@ -156,6 +200,27 @@ const getStyles = () => {
     }
   `;
 
+  const ContactInfo = styled(motion.div)`
+    width: min(90vw, 600px);
+    margin: clamp(1.5rem, 4vw, 2.5rem) auto;
+    padding: clamp(15px, 4vw, 30px);
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+
+    @media (max-width: 768px) {
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 40px; /* Add extra space at bottom for mobile scrolling */
+      -webkit-transform: translateZ(0); /* Prevent safari flickering */
+      transform: translateZ(0);
+    }
+  `;
+
   const LightPoint = styled(motion.div)`
     position: absolute;
     width: 8px;
@@ -170,18 +235,6 @@ const getStyles = () => {
     position: absolute;
     border-radius: 50%;
     filter: blur(20px);
-  `;
-
-  const ContactInfo = styled(motion.div)`
-    margin-top: 2.5rem;
-    background: rgba(255, 255, 255, 0.18);
-    padding: 20px 30px;
-    border-radius: 16px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    transform-style: preserve-3d;
-    perspective: 1000px;
   `;
 
   const ShineEffect = styled(motion.div)`

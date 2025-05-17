@@ -285,7 +285,11 @@ const Error500 = () => {
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          style={{ textAlign: "right", width: "100%" }}
+          style={{
+            textAlign: "right",
+            width: "100%",
+            padding: "0 20px",
+          }}
         >
           درحال بروزرسانی هستیم !
         </Title>
@@ -295,20 +299,29 @@ const Error500 = () => {
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.6, duration: 0.8 }}
-        style={{ textAlign: "right", direction: "rtl" }}
+        style={{
+          textAlign: "right",
+          direction: "rtl",
+          width: "100%",
+          maxWidth: "90vw",
+        }}
       >
         متأسفانه سرور قادر به پاسخگویی نمی‌باشد. تیم فنی در حال بررسی و بروز
         رسانی است. لطفا دقایقی دیگر مجدد تلاش کنید.
       </Subtitle>
 
-
-      
-
       <ContactInfo
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 1, duration: 0.8 }}
-        style={{ textAlign: "right", direction: "rtl" }}
+        style={{
+          textAlign: "right",
+          direction: "rtl",
+          width: "90%",
+          maxWidth: "600px",
+          margin: "0 auto",
+          padding: "20px",
+        }}
       >
         <div
           style={{
@@ -340,7 +353,7 @@ const Error500 = () => {
           <span
             style={{
               color: "#9fd9ff",
-              fontSize: "16px",
+              fontSize: "clamp(14px, 2.5vw, 16px)",
               fontWeight: "bold",
             }}
           >
@@ -351,7 +364,7 @@ const Error500 = () => {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
+            gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))",
             gap: "15px",
             width: "100%",
             justifyItems: "center",
@@ -359,7 +372,7 @@ const Error500 = () => {
             alignItems: "center",
             margin: "0 auto",
             textAlign: "center",
-            maxWidth: "600px",
+            padding: "10px 0",
           }}
         >
           {websites.map((site, index) => (
@@ -377,12 +390,13 @@ const Error500 = () => {
                 cursor: "pointer",
                 margin: "0 auto",
                 width: "100%",
+                maxWidth: "150px",
               }}
             >
               <div
                 style={{
-                  width: "50px",
-                  height: "50px",
+                  width: "clamp(40px, 8vw, 50px)",
+                  height: "clamp(40px, 8vw, 50px)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -408,7 +422,7 @@ const Error500 = () => {
               <span
                 style={{
                   color: "#fff",
-                  fontSize: "11px",
+                  fontSize: "clamp(10px, 2.5vw, 11px)",
                   fontWeight: "500",
                   textAlign: "center",
                   opacity: 0.8,
@@ -420,17 +434,35 @@ const Error500 = () => {
             </a>
           ))}
         </div>
-        <hr style={{ margin: "10px 0" }} />
+
+        <hr style={{ margin: "15px 0" }} />
 
         <div
-          style={{ marginTop: "10px", fontWeight: "bold", marginTop: "10px" }}
+          style={{
+            marginTop: "10px",
+            fontWeight: "bold",
+            fontSize: "clamp(12px, 2.5vw, 14px)",
+          }}
         >
           شماره تماس پشتیبانی:{" "}
-          <span style={{ color: "#9fd9ff", direction: "ltr" }}>
+          <span
+            style={{
+              color: "#9fd9ff",
+              direction: "ltr",
+              display: "block",
+              marginTop: "5px",
+            }}
+          >
             03535220088 _ 02191090088
           </span>
         </div>
-        <div style={{ marginTop: "10px", fontSize: "14px", opacity: 0.8 }}>
+        <div
+          style={{
+            marginTop: "10px",
+            fontSize: "clamp(12px, 2.5vw, 14px)",
+            opacity: 0.8,
+          }}
+        >
           کد خطا: 500{" "}
         </div>
       </ContactInfo>
